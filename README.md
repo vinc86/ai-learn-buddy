@@ -6,9 +6,9 @@ If you want to organize and reinforce your learning yourney, this is the right p
 
 No matter if you are a student or you want to learn something for fun, this application can help you with:
 
-- Tailored flashcards
-- Quiz generation (In development)
-- Summaries or Notes with the outline-method (In development)
+- **Tailored flashcards**
+- **Quiz generation** (In development)
+- **Summaries or Notes with the outline-method** (In development)
 
 More specifications are about to come.
 
