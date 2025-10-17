@@ -1,5 +1,3 @@
-import { PDFParse } from 'pdf-parse';
-
 export const readFileContent = async (file: File): Promise<string> => {
   return new Promise(async (resolve, reject) => {
     const reader = new FileReader();

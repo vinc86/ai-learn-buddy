@@ -9,15 +9,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <title>Your study companion app</title>
-      <body>
-        <main className="w-3/5 m-auto">
-          <header className="flex border-b-orange-700/20 border border-x-0 border-t-0 m-2 p-2 justify-between">
-            <nav className="">
-              <ul className="flex p-3 gap-10">
-                <li className="text-md font-bold text-orange-700 tracking-wide">
+      <body className="bg-gray-50">
+        <main className="md:w-200 w-full m-auto">
+          <header className="flex bg-white md:m-2 p-3 justify-between md:rounded-2xl shadow-lg">
+            <nav>
+              <ul className="flex gap-2">
+                <li className="text-lg tracking-wide hover:bg-gray-200 px-3 py-2 rounded-lg transition-all ease-in">
                   <Link href="/">Board</Link>
                 </li>
-                <li className="text-md font-bold text-orange-700 tracking-wide">
+                <li className="text-lg tracking-wide hover:bg-gray-200 px-3 py-2 rounded-lg transition-all ease-in-out">
                   <Link href="/upload">Upload</Link>
                 </li>
               </ul>
@@ -26,9 +26,7 @@ export default function RootLayout({
               Logout
             </button> */}
           </header>
-          <div className="items-center m-2 rounded-xl justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-            {children}
-          </div>
+          <div className="min-h-screen sm:p-10">{children}</div>
         </main>
       </body>
     </html>
