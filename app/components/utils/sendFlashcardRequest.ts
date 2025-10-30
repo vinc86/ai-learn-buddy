@@ -19,7 +19,7 @@ export const sendFlashcardRequest = async (file: File) => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to generate flashcards');
+    throw new Error(`Failed to generate flashcards: ${response.text}`);
   }
   const data = await response.json();
   return data;

@@ -1,7 +1,7 @@
-import { FlashcardService } from './flashcardService';
+import { FlashcardGeneratorService } from './flashcardGeneratorService';
 
 const services = {
-  FlashcardService
+  FlashcardGeneratorService
 };
 
 export default services;

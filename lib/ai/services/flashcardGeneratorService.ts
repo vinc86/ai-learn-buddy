@@ -2,7 +2,7 @@ import { geminiAI } from '../models/ai';
 import { flashcardParser } from '../parsers/flashcardsParser';
 import { generateFlashcardsPrompt } from '../prompts/flashcardPrompts';
 
-export class FlashcardService {
+export class FlashcardGeneratorService {
   static async generateFromContent(content: string) {
     try {
       const input = await generateFlashcardsPrompt(content);

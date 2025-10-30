@@ -32,22 +32,3 @@ export const flashCardsSchema = z.object({
     )
     .describe('Deck of flashcards sets')
 });
-
-/* 
-
-deckName: string,
-description: string,
-content: [
-  {
-    section: string
-    cards: [
-      {
-        question: string,
-        answer: string
-      }
-    ]
-
-  }
-]
-
-*/
