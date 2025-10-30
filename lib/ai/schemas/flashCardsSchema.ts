@@ -1,8 +1,15 @@
 import z from 'zod';
 
 export const flashCardsSchema = z.object({
-  deckName: z.string(),
-  description: z.string(),
+  deckName: z.string().describe('Title for the deck, max 4 words'),
+  timeForCompletion: z
+    .string()
+    .describe(
+      'Estimated time for completion. In minutes and only the number of minutes, example: 12'
+    ),
+  description: z
+    .string()
+    .describe('Desxcription for the card set, max 8 words'),
   content: z
     .array(
       z.object({

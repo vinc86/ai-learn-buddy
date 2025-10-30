@@ -6,7 +6,7 @@ export function validateFileContent(content: string) {
 
   if (typeof content !== 'string') {
     return NextResponse({
-      error: 'Content imust be of type string',
+      error: 'Content must be of type string',
       status: 400
     });
   }
