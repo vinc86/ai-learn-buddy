@@ -58,19 +58,19 @@ export const FileUpload = () => {
   return (
     <section
       aria-labelledby="heading"
-      className="flex p-10 flex-col gap-5 items-center h-fit"
+      className="flex sm:m-0 sm:p-10 flex-col gap-5 items-center justify-around h-fit w-full"
     >
-      <div className="flex flex-col py-5 px-15 rounded-xl h-90 justify-around text-center bg-gray-100 w-120">
+      <div className="flex flex-col py-5 sm:px-15 sm:shadow-md rounded-xl h-90 justify-around w-full max-w-120 text-center sm:bg-gray-100">
         <h1 id="heading" className="text-3xl font-bold text-orange-700">
           Upload your file
         </h1>
-        <form className="flex  w-full">
+        <form className="flex w-full justify-center">
           <div
             id="dropbox"
             onDragEnter={(e) => resetDragEvent(e)}
             onDragOver={(e) => resetDragEvent(e)}
             onDrop={handleDrop}
-            className="flex bg-white flex-col items-center justify-center w-full h-50 rounded-xl border-2 border-dashed border-gray-300 hover:border-orange-500 gap-5"
+            className="flex bg-white flex-col items-center shadow-md sm:shadow-none justify-center w-full max-w-85 h-50 rounded-xl border-2 border-dashed border-gray-300 hover:border-orange-500 gap-5"
           >
             <div className="flex items-end m-0 p-0">
               <FiFileText
@@ -117,9 +117,9 @@ export const FileUpload = () => {
         </form>
       </div>
       {file && (
-        <>
+        <div className="sm:max-w-120 max-w-85 w-full">
           <ul className="flex w-full">
-            <li className="w-full justify-between list-disc flex items-center gap-2 bg-white rounded-lg border border-gray-200 p-3">
+            <li className="w-full shadow-md justify-between list-disc flex items-center gap-2 bg-white rounded-lg border border-gray-200 p-3">
               <div className="flex gap-2">
                 <span className="bg-orange-200 h-fit p-2 rounded-md">
                   <FiFileText size="30" color="#b97003" />
@@ -144,7 +144,7 @@ export const FileUpload = () => {
           <button
             disabled={isLoading}
             onClick={(e) => handleScanFile(e)}
-            className={`w-full p-3 border flex justify-center ${
+            className={` w-full sm:max-w-120 p-3 mt-5 border flex justify-center ${
               isLoading ? 'bg-orange-600/60' : 'bg-orange-600'
             } text-white text-lg font-bold rounded-md ${
               isLoading ? 'cursor-not-allowed' : 'cursor-pointer'
@@ -171,7 +171,7 @@ export const FileUpload = () => {
               'Scan file'
             )}
           </button>
-        </>
+        </div>
       )}
     </section>
   );

@@ -8,8 +8,11 @@ type Content = {
   cards: Card[];
 };
 
-export type CardSchema = {
-  deckName: string;
-  description: string;
-  content: Content[];
+export type DeckInterface = {
+  data: {
+    deckName: string;
+    description: string;
+    timeForCompletion: string;
+    content: Content[];
+  };
 };
