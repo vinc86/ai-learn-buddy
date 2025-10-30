@@ -2,6 +2,7 @@
   "name": "ai-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
@@ -13,6 +14,7 @@
     "@langchain/core": "^0.3.78",
     "@langchain/google-genai": "^0.2.18",
     "@next/env": "^15.5.4",
+    "mongoose": "^8.19.2",
     "next": "15.5.4",
     "pdf-parse": "^2.3.5",
     "react": "19.1.0",

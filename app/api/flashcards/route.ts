@@ -1,4 +1,5 @@
-import { FlashcardService } from '@/lib/ai/services/flashcardService';
+import { FlashcardGeneratorService } from '@/lib/ai/services/flashcardGeneratorService';
+import { FlashcardDatabaseService } from '@/lib/services/flashcardDatabaseService';
 import { NextRequest, NextResponse } from 'next/server';
 import { validateFileContent } from './validators';
 
@@ -7,8 +8,12 @@ export const POST = async (req: NextRequest) => {
 
   validateFileContent(content);
 
-  const flashCards = await FlashcardService.generateFromContent(content);
-  return NextResponse.json({ flashCards });
+  const flashCards = await FlashcardGeneratorService.generateFromContent(
+    content
+  );
+
+  await FlashcardDatabaseService.saveFlashcards(flashCards);
+  return NextResponse.json({ flashCards, status: 200 });
 };
 
 const mockResponse = {

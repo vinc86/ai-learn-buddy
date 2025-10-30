@@ -4,12 +4,13 @@ import { MdDelete } from 'react-icons/md';
 import { FiFileText } from 'react-icons/fi';
 import { formatFileSize } from '../utils/formatFileSize';
 import { sendFlashcardRequest } from '../utils/sendFlashcardRequest';
+
 export const FileUpload = () => {
   const [file, setFile] = useState<File | null>(null);
   const [flashCards, setFlashcards] = useState();
   const inputRef = useRef<HTMLInputElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(flashCards);
+
   const handleScanFile = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!file) return;
