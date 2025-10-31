@@ -8,7 +8,7 @@ type Content = {
   cards: Card[];
 };
 
-export type Deck = {
+export type DeckType = {
   deckName: string;
   description: string;
   timeForCompletion: string;

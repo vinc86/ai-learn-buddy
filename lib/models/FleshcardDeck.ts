@@ -49,5 +49,4 @@ const flashcardDeckSchema = new Schema<Deck>(
   }
 );
 
-export default models.FlashcardDeck ||
-  model('deck', flashcardDeckSchema, 'decks');
+export default models.deck || model('deck', flashcardDeckSchema, 'decks');
