@@ -26,7 +26,7 @@ export const Deck = (): ReactNode => {
   }
 
   return (
-    <section className="flex flex-col border gap-2 sm:flex-row m-auto w-full">
+    <section className="flex flex-col gap-2 sm:flex-row m-auto w-full">
       {data.map((deck: DeckType) => (
         <DeckCard
           key={deck.deckName}
