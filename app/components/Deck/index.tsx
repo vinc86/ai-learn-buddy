@@ -2,9 +2,10 @@
 import React, { ReactNode } from 'react';
 import { DeckCard } from './DeckCard';
 import { useDeckData } from '@/app/hooks/useDeckData';
+import { type DeckType } from '@/app/types';
 
 export const Deck = (): ReactNode => {
-  const { deckData, isLoading, error } = useDeckData();
+  const { data, isLoading, error } = useDeckData();
 
   if (error) {
     return (
@@ -15,7 +16,7 @@ export const Deck = (): ReactNode => {
   }
   if (isLoading) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center m-auto">
         <div className="w-8 h-8 rounded-full relative">
           <div className="absolute top-0 right-0 border-3 border-orange-600/20 w-full h-full rounded-full"></div>
           <div className="absolute top-0 right-0 border-3 border-t-orange-700 animate-spin border-b-transparent border-x-transparent w-full h-full rounded-full"></div>
@@ -25,11 +26,16 @@ export const Deck = (): ReactNode => {
   }
 
   return (
-    <DeckCard
-      title={deckData?.data.deckName}
-      description={deckData?.data.description}
-      numberOfCards={deckData?.data.content.length}
-      timeForCompletion={deckData?.data.timeForCompletion}
-    />
+    <section className="flex flex-col border gap-2 sm:flex-row m-auto w-full">
+      {data.map((deck: DeckType) => (
+        <DeckCard
+          key={deck.deckName}
+          title={deck.deckName}
+          description={deck.description}
+          numberOfCards={deck.content.length}
+          timeForCompletion={deck.timeForCompletion}
+        />
+      ))}
+    </section>
   );
 };
