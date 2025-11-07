@@ -1,4 +1,4 @@
-import { Deck } from '@/app/types';
+import { DeckType } from '@/app/types';
 import { Schema, model, models } from 'mongoose';
 
 // const CardSchema = new Schema({
@@ -12,7 +12,7 @@ import { Schema, model, models } from 'mongoose';
 //   }
 // });
 
-const flashcardDeckSchema = new Schema<Deck>(
+const flashcardDeckSchema = new Schema<DeckType>(
   {
     deckName: {
       type: String,
@@ -22,6 +22,8 @@ const flashcardDeckSchema = new Schema<Deck>(
       type: String,
       required: true
     },
+    numberOfSections: Number,
+    numberOfCards: Number,
     content: [
       {
         section: String,
@@ -49,4 +51,15 @@ const flashcardDeckSchema = new Schema<Deck>(
   }
 );
 
+flashcardDeckSchema.pre('save', function () {
+  const sectionsLength = this.content.length || 0;
+  const totalCards =
+    this.content?.reduce(
+      (total, section) => total + (section.cards?.length || 0),
+      0
+    ) || 0;
+  this.numberOfSections = sectionsLength;
+
+  this.numberOfCards = totalCards;
+});
 export default models.deck || model('deck', flashcardDeckSchema, 'decks');

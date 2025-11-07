@@ -15,7 +15,7 @@ export default function RootLayout({
             <nav>
               <ul className="flex gap-2">
                 <li className="text-lg tracking-wide hover:bg-gray-200 px-3 py-2 rounded-lg transition-all ease-in">
-                  <Link href="/">Board</Link>
+                  <Link href="/board">Board</Link>
                 </li>
                 <li className="text-lg tracking-wide hover:bg-gray-200 px-3 py-2 rounded-lg transition-all ease-in-out">
                   <Link href="/upload">Upload</Link>
@@ -23,7 +23,7 @@ export default function RootLayout({
               </ul>
             </nav>
           </header>
-          <div className="sm:p-10 p-3">{children}</div>
+          <div className="sm:p-10 p-3 ">{children}</div>
         </main>
       </body>
     </html>

@@ -1,9 +1,9 @@
-import { Deck } from '@/app/types';
+import { type DeckType } from '@/app/types';
 import { connectDB } from '../database/mongodb';
 import FlaschcardDeck from '../models/FleshcardDeck';
 
 export class FlashcardDatabaseService {
-  static async saveFlashcardsDeck(deck: Deck) {
+  static async saveFlashcardsDeck(deck: DeckType) {
     try {
       await connectDB();
       await FlaschcardDeck.create(deck);

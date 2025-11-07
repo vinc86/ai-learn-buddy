@@ -4,16 +4,17 @@ import { FaPlay } from 'react-icons/fa';
 type Props = {
   title: string;
   description: string;
-  numberOfCards: number;
+  numberOfSections: number;
   timeForCompletion: string;
 };
 
 export const DeckCard = ({
   title,
   description,
-  numberOfCards,
+  numberOfSections,
   timeForCompletion
 }: Props): ReactNode => {
+  function handleClick() {}
   return (
     <div className="flex flex-col h-60 justify-between p-4 bg-white sm:w-1/2 shadow-lg border-2 border-gray-300 hover:border-orange-700 hover:shadow-2xl hover:-translate-y-3 transition-all rounded-xl w-full">
       <div className="mt-3">
@@ -21,7 +22,7 @@ export const DeckCard = ({
         <p>{description}</p>
       </div>
       <div className="flex gap-10">
-        <p>{numberOfCards} cards</p>
+        <p>{numberOfSections} Sections</p>
         <p>{timeForCompletion} min</p>
       </div>
 

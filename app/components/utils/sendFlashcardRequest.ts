@@ -12,7 +12,7 @@ export const sendFlashcardRequest = async (file: File) => {
     content = await readPDF(file);
   }
 
-  const response = await fetch('/api/flashcards/', {
+  const response = await fetch('/api/decks/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ content })
