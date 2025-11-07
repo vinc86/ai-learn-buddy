@@ -3,17 +3,16 @@ import { type DeckType } from '../types';
 
 export const useDeckData = () => {
   const [data, setData] = useState<DeckType[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchdata = async (): Promise<void> => {
       try {
-        setIsLoading(true);
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        fetch('/api/flashcards')
-          .then((res) => res.json())
-          .then((res) => setData(res.data));
+        const response = await fetch('/api/decks');
+        const jsonResponse = await response.json();
+        setData(jsonResponse.data);
       } catch (err) {
         setError('Error fetching deck data');
         console.error('Error fetching deck data', err);
